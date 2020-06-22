@@ -1,0 +1,48 @@
+[
+    {
+        "SheetVersion": "0.0.1",
+        "PackageId": "jp.co.toshiba_sol.slim.ep.beans",
+        "ClassId": "Employee",
+        "ClassNameJp": "従業員",
+        "Fields": [
+            {
+                "no": 1,
+                "Field Id": "id",
+                "Type": "Integer",
+                "Field Name (Jp)": "ID"
+            },
+            {
+                "no": 2,
+                "Field Id": "name",
+                "Type": "String",
+                "Field Name (Jp)": "従業員名"
+            },
+            {
+                "no": 3,
+                "Field Id": "departmentId",
+                "Type": "Integer",
+                "Field Name (Jp)": "部門ID"
+            },
+            {
+                "no": 4,
+                "Field Id": "createDate",
+                "Type": "java.sql.Timestamp",
+                "Field Name (Jp)": "登録年月日"
+            },
+            {
+                "no": 5,
+                "Field Id": "updateDate",
+                "Type": "java.sql.Timestamp",
+                "Field Name (Jp)": "更新年月日"
+            },
+            {
+                "no": 6,
+                "Field Id": "deleteFlag",
+                "Type": "boolean",
+                "Field Name (Jp)": "削除フラグ",
+                "Default Value": false
+            }
+        ],
+        "MyValue": "123456789"
+    }
+]

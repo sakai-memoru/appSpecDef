@@ -1,0 +1,52 @@
+[
+    {
+        "no": 1,
+        "key": "table_name",
+        "keyword": "Table Name",
+        "dtype": "Cell",
+        "rowPos": 1,
+        "colPos": 0
+    },
+    {
+        "no": 2,
+        "key": "schema",
+        "keyword": "Schema",
+        "dtype": "Cell",
+        "rowPos": 1,
+        "colPos": 0
+    },
+    {
+        "no": 4,
+        "key": "fields",
+        "keyword": "no",
+        "dtype": "CurrentRange",
+        "rowPos": 0,
+        "colPos": 0
+    },
+    {
+        "no": 5,
+        "key": "fields_converted",
+        "keyword": "seq",
+        "dtype": "CurrentRange",
+        "rowPos": 0,
+        "colPos": 0
+    },
+    {
+        "no": 6,
+        "key": "ddl",
+        "keyword": "ddl",
+        "dtype": "Name"
+    },
+    {
+        "no": 7,
+        "key": "ddl_comment",
+        "keyword": "comment_ddl",
+        "dtype": "Name"
+    },
+    {
+        "no": 8,
+        "key": "django_model",
+        "keyword": "django_model",
+        "dtype": "Name"
+    }
+]

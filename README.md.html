@@ -1,0 +1,234 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="mded-output-date" content="2020/06/22 05:44:49">
+<title>README.md</title>
+<META http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+color: #000000;
+background-color: #FFFFFF;
+font-family: ＭＳ ゴシック;
+font-size: 11pt;
+}
+h1 {
+background-color: #80FFFF;
+font-size: 200%;
+border-left: 3pt #8080FF solid;
+}
+h2 {
+background-color: #C6FFFF;
+font-size: 120%;
+border-left: 2pt #8080FF solid;
+}
+h3 {
+font-size: 100%;
+border-bottom: 1pt #0000A0 solid;
+}
+h4 {
+font-size: 100%;
+}
+h5 {
+font-size: 100%;
+}
+h6 {
+font-size: 100%;
+}
+blockquote p,blockquote ol,blockquote ul,blockquote li {
+background-color: #FFFF80;
+}
+blockquote {
+background-color: #FFFF80;
+}
+pre {
+background-color: #EFEFEF;
+font-family: Consolas;
+}
+dt {
+color: #FFFFFF;
+background-color: #000080;
+}
+dd {
+background-color: #FAFAFA;
+}
+th {
+padding:0.3em;
+border: 1px #000000 solid;
+}
+td {
+padding:0.3em;
+border: 1px #000000 solid;
+}
+table.markdown {
+background-color: #F0FBFB;
+border: 1px #000000 solid;
+table-layout: auto;
+border-collapse: collapse;
+border-spacing: 0;
+empty-cells: show;
+}
+a {
+color: #FFFFFF;
+background-color: #800000;
+}
+code {
+background-color: #80FF80;
+}
+--></style>
+</head>
+<body>
+<div class="markdown-content"><a name="toc-top"></a>
+<a name="toc-1"></a><h1>[Excel VBA] appSpecDef : 設計書から設計情報をJSON形式で抽出するツール</h1>
+
+<a name="toc-1-1"></a><h2>overveiw :</h2>
+
+<ul><li>Excelで作成した表形式の設計書や仕様書から、設計情報を抽出する設計補助ツール(VBA Excel)。
+<li>設計書や仕様書のセルや表から取得する値を、マッピング表(_mapXXX.xlsm)で定義し、その定義をもとに、マッピング定義jsonを生成する。マッピング表をもとに、設計情報を抽出する。
+<ul><li>マッピング定義jsonは、マクロにより生成可能。
+</ul></ul>
+<a name="toc-1-1-1"></a><h3>機能 :</h3>
+<ul><li><p>Excelにて、設計書・仕様書を作成し、指定フォルダ（input folder)に配置する。
+<ul><li>マッピング表より、マッピング定義(_mapXXX.def.json)を生成し、<code>DEF_FOLDER</code>に配置する。<br>
+
+</ul></p><li><p>メニューより、以下の機能を利用する。
+<ul><li><strong>Output JSON (TRANSFORM_DEF_VD)</strong>変数定義書(Variable Design)から設計情報をJSON出力する（サンプル）。
+<li><strong>Output JSON (TRANSFORM_DEF_TD)</strong>テーブル定義書(Table Design)から設計情報をJSON出力する（サンプル）。
+<ul><li><strong>Output Table DDL(Postgres)</strong>テーブル定義書からDDLを出力する（サンプル）
+<li><strong>Output Django Model</strong>テーブル定義書からDjango FrameworkのModelを出力する（サンプル）<br>
+
+</ul></ul></p><li><p>マッピング表より、マッピング定義を生成する。(_mapTableDesign.xlsm等）
+</p></ul>
+<a name="toc-1-2"></a><h2>Installation :</h2>
+
+<ul><li><p>GitHubより、Cloneする。
+<ul><li>https://github.com/sakai-memoru/appSpecDef<br>
+
+</ul></p><li><p>参照設定が必要。
+</p></ul>
+<p><img src="https://gyazo.com/7d30f2387e7818067fd7596a82e507e9.png" alt="referto">
+</p><br>
+
+<a name="toc-1-3"></a><h2>Usage :</h2>
+<ul><li>アプリは以下。
+<ul><li>アプリ本体 &nbsp;：appSpecDef.xlsm
+<ul><li>Batch &nbsp;&nbsp;: SpecDefMain.bas
+<ul><li>SpecDefModule.bas
+<ul><li>GetValueByDefinition
+<li>CreateDdl
+<li>GenerateDjangoModelCode
+</ul></ul></ul></ul><li>アプリconfig：config.json
+<li><p>取得マッピング定義form：
+<ul><li>forms/_mapTableDesign.xlsm &nbsp;Table設計書用Sample
+<li>forms/_mapVariableDesign.xlsm &nbsp;Variable設計書用Sample
+<ul><li>TransSpecMain.bas
+<ul><li>Batch - GetDefinition
+<li>Dump &nbsp;- GetData<br>
+
+</ul></ul></ul></p><li><p>appSpecDef.xlsmを開く。Menuより起動する。
+</p></ul>
+<p><img src="https://gyazo.com/583ef3cb38a37a6efcca067aca669127.png" alt="menu">
+</p><br>
+<br>
+
+<a name="toc-1-3-2"></a><h3>初期コンフィグ設定 :</h3>
+
+<pre>{
+    "BASE_FOLDER": "",
+    "INPUT_FOLDER": "input",
+    "OUTPUT_FOLDER": "output",
+    "TEMP_FOLDER": "input/temp",
+    "BACKUP_FOLDER": "input/backup",
+    "FORM_FOLDER": "forms",
+    "DEF_FOLDER": "defs",
+    "TRANSFORM_DEF_VD": {
+        "SHEET_TYPE": "DEFINITION",
+        "MACRO_GET_METHOD": "GetValueByDefinition",
+        "INPUT_LIKE": "SSE_VD*.xlsx",
+        "DEF_FILE": "_mapVariableDesign_200622114915.def.json"
+    },
+    "TRANSFORM_DEF_TD": {
+        "SHEET_TYPE": "DEFINITION",
+        "MACRO_GET_METHOD": "GetValueByDefinition",
+        "INPUT_LIKE": "SSE_TD*.xlsx",
+        "DEF_FILE": "_mapTableDesign_200622114846.def.json"
+    },
+    "CONTROL_PREFIX": "__",
+    "SOURCE_FROM": "_source",
+    "APP_NAME" : "appSpecDef"
+}
+</pre>
+<a name="toc-1-3-3"></a><h3>Environment</h3>
+
+<p><img src="https://gyazo.com/fadab95b24c0b0b118cfb38efe07bd25.png" alt="env">
+</p><br>
+
+<a name="toc-1-4"></a><h2>Execution sample</h2>
+
+<ul><li><p>マッピング定義 : forms/_mapTableDesign.xlsm<br>
+<img src="https://gyazo.com/01b892d861cdf309cb2767a62682a48b.png" alt="map"><br>
+
+</p><li><p>テーブル定義書：input/SSE_TD_Jobs.xlsx<br>
+<img src="https://gyazo.com/c625d31d01b922584cc737401ab3fbb5.png" alt="spec"><br>
+
+</p><li><p>出力例
+</p></ul><pre>CREATE TABLE Jobs (
+  id serial NOT NULL ,
+  seq_id numeric NOT NULL ,
+  job_name varchar(2000) NOT NULL ,
+  contents text  ,
+  sites varchar(2000)  ,
+    :
+    :
+  deleted_user_id varchar(20)  ,
+PRIMARY KEY(id) )
+COMMENT ON COLUMN Jobs.seq_id IS <span class="str">'内部ID'</span> ;
+COMMENT ON COLUMN Jobs.job_name IS <span class="str">'案件名'</span> ;
+COMMENT ON COLUMN Jobs.contents IS <span class="str">'案件概要'</span> ;
+COMMENT ON COLUMN Jobs.sites IS <span class="str">'勤務地'</span> ;
+    :
+    :
+COMMENT ON COLUMN Jobs.deleted_user_id IS <span class="str">'削除者'</span> ;
+
+</pre>
+
+<a name="toc-1-5"></a><h2>application I/F</h2>
+<pre>'''' **********************************************
+'' @file SpecDefMain.bas
+'' @parent appSpecDef.xlsm
+''
+
+Public Function Batch( _
+        ByVal datatype As String, _
+        Optional ByVal ddlOn As Variant = False, _
+        Optional ByVal codeOn As Variant = False, _
+        Optional ByVal moveOn As Variant = False _
+    ) As Variant
+'''' **********************************************
+'''' @function batch
+'''' @param datatype {String} 処理データタイプ
+''''        config.jsonのキー
+''''                  "TRANSFORM_DEF_VD"
+''''                  "TRANSFORM_DEF_TD"
+'''' @param ddlOn  {Variant&lt;boolean&gt;}
+'''' @param codeOn  {Variant&lt;boolean&gt;}
+'''' @param moveOn  {Variant&lt;boolean&gt;}
+''''            Inputファイル移動flag
+''
+</pre>
+<a name="toc-1-6"></a><h2>note :</h2>
+<ul><li>落ち着いたら、もう少し記述を追加します。
+</ul>
+<a name="toc-1-7"></a><h2>reference :</h2>
+
+<ul><li>以下の外部ライブラリを使用しています。
+<li>VBA-JSON : JsonConverter.bas
+<ul><li>https://github.com/VBA-tools/VBA-JSON
+</ul><li>MiniTemplator
+<ul><li>https://www.source-code.biz/MiniTemplator/
+</ul></ul>
+<p>// --- end of README.md
+</p>
+<hr>Output by WZ Markdown Editor (Trial)<br></div>
+</body>
+</html>

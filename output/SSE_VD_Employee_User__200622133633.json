@@ -1,0 +1,45 @@
+[
+    {
+        "PackageId": "com.sse.beans",
+        "ClassId": "User",
+        "ClassNameJp": "ユーザ",
+        "Fields": [
+            {
+                "no": 1,
+                "Field Id": "id",
+                "Type": "number",
+                "Field Name (Jp)": "ID"
+            },
+            {
+                "no": 2,
+                "Field Id": "name",
+                "Type": "string",
+                "Field Name (Jp)": "ユーザ名"
+            },
+            {
+                "no": 3,
+                "Field Id": "createDate",
+                "Type": "datetime",
+                "Field Name (Jp)": "登録日時"
+            },
+            {
+                "no": 4,
+                "Field Id": "updateDate",
+                "Type": "datetime",
+                "Field Name (Jp)": "更新日時"
+            },
+            {
+                "no": 5,
+                "Field Id": "deleteFlag",
+                "Type": "boolean",
+                "Field Name (Jp)": "削除フラグ",
+                "Default Value": false
+            }
+        ],
+        "MyValue": "123456789",
+        "_source": "'SSE_VD_Employee.xlsx'!User",
+        "_source_date": "2020-06-18T07:32:09.000Z",
+        "_created": "2020-06-22T04:36:33.000Z",
+        "_id": "B8945C0B-CB16-DC6E-B1E5-8C19749A44CC"
+    }
+]

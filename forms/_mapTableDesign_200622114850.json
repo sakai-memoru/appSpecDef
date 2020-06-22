@@ -1,0 +1,464 @@
+[
+    {
+        "comment_ddl": "COMMENT ON COLUMN Jobs.seq_id IS '内部ID' ;\nCOMMENT ON COLUMN Jobs.job_name IS '案件名' ;\nCOMMENT ON COLUMN Jobs.contents IS '案件概要' ;\nCOMMENT ON COLUMN Jobs.sites IS '勤務地' ;\nCOMMENT ON COLUMN Jobs.durings IS '作業期間' ;\nCOMMENT ON COLUMN Jobs.price IS '単価' ;\nCOMMENT ON COLUMN Jobs.industry IS '業界' ;\nCOMMENT ON COLUMN Jobs.skill_required IS 'スキル（必須条件）' ;\nCOMMENT ON COLUMN Jobs.skill_recommended IS 'スキル（推奨条件）' ;\nCOMMENT ON COLUMN Jobs.environment IS '開発環境' ;\nCOMMENT ON COLUMN Jobs.age IS '年齢制限' ;\nCOMMENT ON COLUMN Jobs.can_accept_foreigner IS '外国籍可否' ;\nCOMMENT ON COLUMN Jobs.required_numbers IS '募集人員' ;\nCOMMENT ON COLUMN Jobs.counts_for_interview IS '面談回数' ;\nCOMMENT ON COLUMN Jobs.working_time IS '就業時間' ;\nCOMMENT ON COLUMN Jobs.average_work_hours IS '平均稼働時間' ;\nCOMMENT ON COLUMN Jobs.organization IS '体制' ;\nCOMMENT ON COLUMN Jobs.commercial_flow IS '商流' ;\nCOMMENT ON COLUMN Jobs.payment_site IS '支払サイト' ;\nCOMMENT ON COLUMN Jobs.settlement_to_overhours IS '清算' ;\nCOMMENT ON COLUMN Jobs.note IS '備考' ;\nCOMMENT ON COLUMN Jobs.file_name IS 'メールデータ・ファイル名' ;\nCOMMENT ON COLUMN Jobs.del_flag IS '削除フラグ' ;\nCOMMENT ON COLUMN Jobs.created_date IS '作成日' ;\nCOMMENT ON COLUMN Jobs.created_user_id IS '作成者' ;\nCOMMENT ON COLUMN Jobs.updated_date IS '更新日' ;\nCOMMENT ON COLUMN Jobs.updated_user_id IS '更新者' ;\nCOMMENT ON COLUMN Jobs.deleted_date IS '削除日' ;\nCOMMENT ON COLUMN Jobs.deleteed_user_id IS '削除者' ;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+        "ddl": "CREATE TABLE Jobs (\n  id serial NOT NULL ,\n  seq_id numeric NOT NULL ,\n  job_name varchar(2000) NOT NULL ,\n  contents text  ,\n  sites varchar(2000)  ,\n  durings varchar(2000)  ,\n  price numeric(9,2)  ,\n  industry varchar(2000)  ,\n  skill_required varchar(2000)  ,\n  skill_recommended varchar(2000)  ,\n  environment varchar(2000)  ,\n  age varchar(2000)  ,\n  can_accept_foreigner varchar(2000)  ,\n  required_numbers varchar(2000)  ,\n  counts_for_interview varchar(2000)  ,\n  working_time varchar(2000)  ,\n  average_work_hours varchar(2000)  ,\n  organization varchar(2000)  ,\n  commercial_flow varchar(2000)  ,\n  payment_site varchar(2000)  ,\n  settlement_to_overhours varchar(2000)  ,\n  note text  ,\n  file_name varchar(2000) NOT NULL ,\n  del_flag varchar(6)  ,\n  created_date timestamp NOT NULL ,\n  created_user_id varchar(20) NOT NULL ,\n  updated_date timestamp  ,\n  updated_user_id varchar(20)  ,\n  deleted_date timestamp  ,\n  deleteed_user_id varchar(20)  ,\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPRIMARY KEY(id) )",
+        "django_model": "\nfrom django.db import models\n\nclass Job(models.Model):\n    # id = # models.AutoField()\n    seq_id = models.DecimalField( unique=True)\n    job_name = models.CharField( max_length= 2000)\n    contents = models.TextField( null=True)\n    sites = models.CharField( max_length= 2000, null=True)\n    durings = models.CharField( max_length= 2000, null=True)\n    price = models.DecimalField( max_length= 9,2, null=True)\n    industry = models.CharField( max_length= 2000, null=True)\n    skill_required = models.CharField( max_length= 2000, null=True)\n    skill_recommended = models.CharField( max_length= 2000, null=True)\n    environment = models.CharField( max_length= 2000, null=True)\n    age = models.CharField( max_length= 2000, null=True)\n    can_accept_foreigner = models.CharField( max_length= 2000, null=True)\n    required_numbers = models.CharField( max_length= 2000, null=True)\n    counts_for_interview = models.CharField( max_length= 2000, null=True)\n    working_time = models.CharField( max_length= 2000, null=True)\n    average_work_hours = models.CharField( max_length= 2000, null=True)\n    organization = models.CharField( max_length= 2000, null=True)\n    commercial_flow = models.CharField( max_length= 2000, null=True)\n    payment_site = models.CharField( max_length= 2000, null=True)\n    settlement_to_overhours = models.CharField( max_length= 2000, null=True)\n    note = models.TextField( null=True)\n    file_name = models.CharField( max_length= 2000)\n    del_flag = models.CharField( max_length= 6, null=True)\n    created_date = models.DateTimeField()\n    created_user_id = models.CharField( max_length= 20)\n    updated_date = models.DateTimeField( null=True)\n    updated_user_id = models.CharField( max_length= 20, null=True)\n    deleted_date = models.DateTimeField( null=True)\n    deleteed_user_id = models.CharField( max_length= 20, null=True)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+        "Table_Name": "Jobs",
+        "table_name": "Jobs",
+        "schema": "tcmp",
+        "fields": [
+            {
+                "no": 1,
+                "field id": "id",
+                "type": "serial",
+                "required": "○",
+                "PK": "PK"
+            },
+            {
+                "no": 2,
+                "field id": "seq_id",
+                "type": "numeric",
+                "required": "○",
+                "PK": "UK",
+                "field name(jp)": "内部ID"
+            },
+            {
+                "no": 3,
+                "field id": "job_name",
+                "type": "varchar",
+                "size": 2000,
+                "required": "○",
+                "field name(jp)": "案件名"
+            },
+            {
+                "no": 4,
+                "field id": "contents",
+                "type": "text",
+                "field name(jp)": "案件概要"
+            },
+            {
+                "no": 5,
+                "field id": "sites",
+                "type": "varchar",
+                "size": 2000,
+                "field name(jp)": "勤務地"
+            },
+            {
+                "no": 6,
+                "field id": "durings",
+                "type": "varchar",
+                "size": 2000,
+                "field name(jp)": "作業期間"
+            },
+            {
+                "no": 7,
+                "field id": "price",
+                "type": "numeric",
+                "size": "9,2",
+                "field name(jp)": "単価"
+            },
+            {
+                "no": 8,
+                "field id": "industry",
+                "type": "varchar",
+                "size": 2000,
+                "field name(jp)": "業界"
+            },
+            {
+                "no": 9,
+                "field id": "skill_required",
+                "type": "varchar",
+                "size": 2000,
+                "field name(jp)": "スキル（必須条件）"
+            },
+            {
+                "no": 10,
+                "field id": "skill_recommended",
+                "type": "varchar",
+                "size": 2000,
+                "field name(jp)": "スキル（推奨条件）"
+            },
+            {
+                "no": 11,
+                "field id": "environment",
+                "type": "varchar",
+                "size": 2000,
+                "field name(jp)": "開発環境"
+            },
+            {
+                "no": 12,
+                "field id": "age",
+                "type": "varchar",
+                "size": 2000,
+                "field name(jp)": "年齢制限"
+            },
+            {
+                "no": 13,
+                "field id": "can_accept_foreigner",
+                "type": "varchar",
+                "size": 2000,
+                "field name(jp)": "外国籍可否"
+            },
+            {
+                "no": 14,
+                "field id": "required_numbers",
+                "type": "varchar",
+                "size": 2000,
+                "field name(jp)": "募集人員"
+            },
+            {
+                "no": 15,
+                "field id": "counts_for_interview",
+                "type": "varchar",
+                "size": 2000,
+                "field name(jp)": "面談回数"
+            },
+            {
+                "no": 16,
+                "field id": "working_time",
+                "type": "varchar",
+                "size": 2000,
+                "field name(jp)": "就業時間"
+            },
+            {
+                "no": 17,
+                "field id": "average_work_hours",
+                "type": "varchar",
+                "size": 2000,
+                "field name(jp)": "平均稼働時間"
+            },
+            {
+                "no": 18,
+                "field id": "organization",
+                "type": "varchar",
+                "size": 2000,
+                "field name(jp)": "体制"
+            },
+            {
+                "no": 19,
+                "field id": "commercial_flow",
+                "type": "varchar",
+                "size": 2000,
+                "field name(jp)": "商流"
+            },
+            {
+                "no": 20,
+                "field id": "payment_site",
+                "type": "varchar",
+                "size": 2000,
+                "field name(jp)": "支払サイト"
+            },
+            {
+                "no": 21,
+                "field id": "settlement_to_overhours",
+                "type": "varchar",
+                "size": 2000,
+                "field name(jp)": "清算"
+            },
+            {
+                "no": 22,
+                "field id": "note",
+                "type": "text",
+                "field name(jp)": "備考"
+            },
+            {
+                "no": 23,
+                "field id": "file_name",
+                "type": "varchar",
+                "size": 2000,
+                "required": "○",
+                "field name(jp)": "メールデータ・ファイル名"
+            },
+            {
+                "no": 24,
+                "field id": "del_flag",
+                "type": "varchar",
+                "size": 6,
+                "field name(jp)": "削除フラグ"
+            },
+            {
+                "no": 25,
+                "field id": "created_date",
+                "type": "timestamp",
+                "required": "○",
+                "field name(jp)": "作成日"
+            },
+            {
+                "no": 26,
+                "field id": "created_user_id",
+                "type": "varchar",
+                "size": 20,
+                "required": "○",
+                "field name(jp)": "作成者"
+            },
+            {
+                "no": 27,
+                "field id": "updated_date",
+                "type": "timestamp",
+                "field name(jp)": "更新日"
+            },
+            {
+                "no": 28,
+                "field id": "updated_user_id",
+                "type": "varchar",
+                "size": 20,
+                "field name(jp)": "更新者"
+            },
+            {
+                "no": 29,
+                "field id": "deleted_date",
+                "type": "timestamp",
+                "field name(jp)": "削除日"
+            },
+            {
+                "no": 30,
+                "field id": "deleteed_user_id",
+                "type": "varchar",
+                "size": 20,
+                "field name(jp)": "削除者"
+            }
+        ],
+        "fields_converted": [
+            {
+                "seq": 1,
+                "type": "serial",
+                "null_ristrict": "NOT NULL",
+                "column_def": "  id serial NOT NULL ,",
+                "comment_statement": "",
+                "primary keys": "PRIMARY KEY(id),"
+            },
+            {
+                "seq": 2,
+                "type": "numeric",
+                "null_ristrict": "NOT NULL",
+                "column_def": "  seq_id numeric NOT NULL ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.seq_id IS '内部ID' ;",
+                "primary keys": ""
+            },
+            {
+                "seq": 3,
+                "type": "varchar(2000)",
+                "null_ristrict": "NOT NULL",
+                "column_def": "  job_name varchar(2000) NOT NULL ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.job_name IS '案件名' ;",
+                "primary keys": ""
+            },
+            {
+                "seq": 4,
+                "type": "text",
+                "null_ristrict": "",
+                "column_def": "  contents text  ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.contents IS '案件概要' ;",
+                "primary keys": ""
+            },
+            {
+                "seq": 5,
+                "type": "varchar(2000)",
+                "null_ristrict": "",
+                "column_def": "  sites varchar(2000)  ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.sites IS '勤務地' ;",
+                "primary keys": ""
+            },
+            {
+                "seq": 6,
+                "type": "varchar(2000)",
+                "null_ristrict": "",
+                "column_def": "  durings varchar(2000)  ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.durings IS '作業期間' ;",
+                "primary keys": ""
+            },
+            {
+                "seq": 7,
+                "type": "numeric(9,2)",
+                "null_ristrict": "",
+                "column_def": "  price numeric(9,2)  ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.price IS '単価' ;",
+                "primary keys": ""
+            },
+            {
+                "seq": 8,
+                "type": "varchar(2000)",
+                "null_ristrict": "",
+                "column_def": "  industry varchar(2000)  ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.industry IS '業界' ;",
+                "primary keys": ""
+            },
+            {
+                "seq": 9,
+                "type": "varchar(2000)",
+                "null_ristrict": "",
+                "column_def": "  skill_required varchar(2000)  ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.skill_required IS 'スキル（必須条件）' ;",
+                "primary keys": ""
+            },
+            {
+                "seq": 10,
+                "type": "varchar(2000)",
+                "null_ristrict": "",
+                "column_def": "  skill_recommended varchar(2000)  ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.skill_recommended IS 'スキル（推奨条件）' ;",
+                "primary keys": ""
+            },
+            {
+                "seq": 11,
+                "type": "varchar(2000)",
+                "null_ristrict": "",
+                "column_def": "  environment varchar(2000)  ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.environment IS '開発環境' ;",
+                "primary keys": ""
+            },
+            {
+                "seq": 12,
+                "type": "varchar(2000)",
+                "null_ristrict": "",
+                "column_def": "  age varchar(2000)  ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.age IS '年齢制限' ;",
+                "primary keys": ""
+            },
+            {
+                "seq": 13,
+                "type": "varchar(2000)",
+                "null_ristrict": "",
+                "column_def": "  can_accept_foreigner varchar(2000)  ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.can_accept_foreigner IS '外国籍可否' ;",
+                "primary keys": ""
+            },
+            {
+                "seq": 14,
+                "type": "varchar(2000)",
+                "null_ristrict": "",
+                "column_def": "  required_numbers varchar(2000)  ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.required_numbers IS '募集人員' ;",
+                "primary keys": ""
+            },
+            {
+                "seq": 15,
+                "type": "varchar(2000)",
+                "null_ristrict": "",
+                "column_def": "  counts_for_interview varchar(2000)  ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.counts_for_interview IS '面談回数' ;",
+                "primary keys": ""
+            },
+            {
+                "seq": 16,
+                "type": "varchar(2000)",
+                "null_ristrict": "",
+                "column_def": "  working_time varchar(2000)  ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.working_time IS '就業時間' ;",
+                "primary keys": ""
+            },
+            {
+                "seq": 17,
+                "type": "varchar(2000)",
+                "null_ristrict": "",
+                "column_def": "  average_work_hours varchar(2000)  ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.average_work_hours IS '平均稼働時間' ;",
+                "primary keys": ""
+            },
+            {
+                "seq": 18,
+                "type": "varchar(2000)",
+                "null_ristrict": "",
+                "column_def": "  organization varchar(2000)  ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.organization IS '体制' ;",
+                "primary keys": ""
+            },
+            {
+                "seq": 19,
+                "type": "varchar(2000)",
+                "null_ristrict": "",
+                "column_def": "  commercial_flow varchar(2000)  ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.commercial_flow IS '商流' ;",
+                "primary keys": ""
+            },
+            {
+                "seq": 20,
+                "type": "varchar(2000)",
+                "null_ristrict": "",
+                "column_def": "  payment_site varchar(2000)  ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.payment_site IS '支払サイト' ;",
+                "primary keys": ""
+            },
+            {
+                "seq": 21,
+                "type": "varchar(2000)",
+                "null_ristrict": "",
+                "column_def": "  settlement_to_overhours varchar(2000)  ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.settlement_to_overhours IS '清算' ;",
+                "primary keys": ""
+            },
+            {
+                "seq": 22,
+                "type": "text",
+                "null_ristrict": "",
+                "column_def": "  note text  ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.note IS '備考' ;",
+                "primary keys": ""
+            },
+            {
+                "seq": 23,
+                "type": "varchar(2000)",
+                "null_ristrict": "NOT NULL",
+                "column_def": "  file_name varchar(2000) NOT NULL ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.file_name IS 'メールデータ・ファイル名' ;",
+                "primary keys": ""
+            },
+            {
+                "seq": 24,
+                "type": "varchar(6)",
+                "null_ristrict": "",
+                "column_def": "  del_flag varchar(6)  ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.del_flag IS '削除フラグ' ;",
+                "primary keys": ""
+            },
+            {
+                "seq": 25,
+                "type": "timestamp",
+                "null_ristrict": "NOT NULL",
+                "column_def": "  created_date timestamp NOT NULL ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.created_date IS '作成日' ;",
+                "primary keys": ""
+            },
+            {
+                "seq": 26,
+                "type": "varchar(20)",
+                "null_ristrict": "NOT NULL",
+                "column_def": "  created_user_id varchar(20) NOT NULL ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.created_user_id IS '作成者' ;",
+                "primary keys": ""
+            },
+            {
+                "seq": 27,
+                "type": "timestamp",
+                "null_ristrict": "",
+                "column_def": "  updated_date timestamp  ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.updated_date IS '更新日' ;",
+                "primary keys": ""
+            },
+            {
+                "seq": 28,
+                "type": "varchar(20)",
+                "null_ristrict": "",
+                "column_def": "  updated_user_id varchar(20)  ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.updated_user_id IS '更新者' ;",
+                "primary keys": ""
+            },
+            {
+                "seq": 29,
+                "type": "timestamp",
+                "null_ristrict": "",
+                "column_def": "  deleted_date timestamp  ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.deleted_date IS '削除日' ;",
+                "primary keys": ""
+            },
+            {
+                "seq": 30,
+                "type": "varchar(20)",
+                "null_ristrict": "",
+                "column_def": "  deleteed_user_id varchar(20)  ,",
+                "comment_statement": "COMMENT ON COLUMN Jobs.deleteed_user_id IS '削除者' ;",
+                "primary keys": ""
+            }
+        ]
+    }
+]

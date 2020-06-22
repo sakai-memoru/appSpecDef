@@ -1,0 +1,24 @@
+{
+    "BASE_FOLDER": "",
+    "INPUT_FOLDER": "input",
+    "OUTPUT_FOLDER": "output",
+    "TEMP_FOLDER": "input/temp",
+    "BACKUP_FOLDER": "input/backup",
+    "FORM_FOLDER": "forms",
+    "DEF_FOLDER": "defs",
+    "TRANSFORM_DEF_VD": {
+        "SHEET_TYPE": "DEFINITION",
+        "MACRO_GET_METHOD": "GetValueByDefinition",
+        "INPUT_LIKE": "SSE_VD*.xlsx",
+        "DEF_FILE": "_mapVariableDesign_200622114915.def.json"
+    },
+    "TRANSFORM_DEF_TD": {
+        "SHEET_TYPE": "DEFINITION",
+        "MACRO_GET_METHOD": "GetValueByDefinition",
+        "INPUT_LIKE": "SSE_TD*.xlsx",
+        "DEF_FILE": "_mapTableDesign_200622114846.def.json"
+    },
+    "CONTROL_PREFIX": "__",
+    "SOURCE_FROM": "_source",
+    "APP_NAME" : "appSpecDef"
+}

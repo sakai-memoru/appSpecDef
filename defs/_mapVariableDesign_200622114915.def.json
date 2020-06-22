@@ -1,0 +1,40 @@
+[
+    {
+        "no": 1,
+        "key": "PackageId",
+        "keyword": "Package Id",
+        "dtype": "Cell",
+        "rowPos": 1,
+        "colPos": 0
+    },
+    {
+        "no": 2,
+        "key": "ClassId",
+        "keyword": "Class Id",
+        "dtype": "Cell",
+        "rowPos": 1,
+        "colPos": 0
+    },
+    {
+        "no": 3,
+        "key": "ClassNameJp",
+        "keyword": "Class Name (Jp)",
+        "dtype": "Cell",
+        "rowPos": 1,
+        "colPos": 0
+    },
+    {
+        "no": 4,
+        "key": "Fields",
+        "keyword": "no",
+        "dtype": "CurrentRange",
+        "rowPos": 0,
+        "colPos": 0
+    },
+    {
+        "no": 5,
+        "key": "MyValue",
+        "value": 123456789,
+        "dtype": "Value"
+    }
+]
